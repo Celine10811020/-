@@ -1,449 +1,63 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>YK視頻</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/addons/p5.sound.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/addons/p5.dom.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/addons/p5.sound.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script src="main.js"></script>
 
-  <link href="style.css" rel="stylesheet" type="text/css">
-
+    <title>火德云官逢道泰</title>
 </head>
 
 <body>
-  <font size="15">
-    <p align="center"> YK官錄視頻統整列表 </p>
-  </font>
-
-  <font size="3">
-    <p align="right"> 更新日期：2021-08-15 </p>
-  </font>
 
   <font size="4">
-    <table id="table_id" class="display" width = 98%>
-      <thead>
-        <tr>
-          <th>日期</th>
-          <th>節目名稱</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>20160528</td>
-          <td><a href="https://v.youku.com/v_show/id_XMTU5Nzg1MzM2MA==.html?spm=a2hbt.13141534.1_3.1&s=777c687127d111e69c81&scm=20140719.apircmd.61519.video_XMTU5Nzg1MzM2MA==" target="_blank">德雲社20周年之小岳岳省親專場 2016</a></td>
-        </tr>
-        <tr>
-          <td>20160608</td>
-          <td><a href="https://v.youku.com/v_show/id_XMTYxNDY5MDMxNg==.html?spm=a2hbt.13141534.1_3.1&s=647ea17c321c11e6b32f" target="_blank">德雲社20周年之優酷會員專場 2016</a></td>
-        </tr>
-        <tr>
-          <td>20160728</td>
-          <td><a href="https://v.youku.com/v_show/id_XMTcwNzM2MjU0NA==.html?spm=a2hbt.13141534.1_3.1&s=ac6a0fd76ddc11e6b9bb&scm=20140719.apircmd.61519.video_XMTcwNzM2MjU0NA==" target="_blank">德雲社20周年全球巡演遊輪專場 2016</a></td>
-        </tr>
-        <tr>
-          <td>20160830</td>
-          <td><a href="https://v.youku.com/v_show/id_XMTczNDIzNTM0MA==.html?spm=a2hbt.13141534.1_3.1&s=74a63ee1797a11e6b9bb&scm=20140719.apircmd.61519.video_XMTczNDIzNTM0MA==" target="_blank">德雲社綱絲節相聲大會第一日 2016</a></td>
-        </tr>
-        <tr>
-          <td>20160831</td>
-          <td><a href="https://v.youku.com/v_show/id_XMTczNDI0NDM2OA==.html?spm=a2hbt.13141534.1_3.1&s=74a63ee1797a11e6b9bb&scm=20140719.apircmd.61519.video_XMTczNDI0NDM2OA==" target="_blank">德雲社綱絲節相聲大會第二日 2016</a></td>
-        </tr>
-        <tr>
-          <td>20160901</td>
-          <td><a href="https://v.youku.com/v_show/id_XMTczNDI0NDg5Ng==.html?spm=a2hbt.13141534.1_3.1&s=74a63ee1797a11e6b9bb&scm=20140719.apircmd.61519.video_XMTczNDI0NDg5Ng==" target="_blank">德雲社綱絲節相聲大會第三日 2016</a></td>
-        </tr>
-        <tr>
-          <td>20160902</td>
-          <td><a href="https://v.youku.com/v_show/id_XMTczNDI0NTU1Mg==.html?spm=a2hbt.13141534.1_3.1&s=74a63ee1797a11e6b9bb&scm=20140719.apircmd.61519.video_XMTczNDI0NTU1Mg==" target="_blank">德雲社綱絲節相聲大會第四日閉幕 2016</a></td>
-        </tr>
-        <tr>
-          <td>20170228</td>
-          <td><a href="https://v.youku.com/v_show/id_XMjUyNTUyNjY0MA==.html?spm=a2hbt.13141534.1_3.1&s=efbfbd3c0f59efbfbd38&scm=20140719.apircmd.61519.video_XMjUyNTUyNjY0MA==" target="_blank">德雲社丁酉年開箱慶典 2017</a></td>
-        </tr>
-        <tr>
-          <td>20170421</td>
-          <td><a href="https://v.youku.com/v_show/id_XMjc1MzY3Mzg5Ng==.html?spm=a2hbt.13141534.1_3.1&s=20efbfbdefbfbdefbfbd&scm=20140719.apircmd.61519.video_XMjc1MzY3Mzg5Ng==" target="_blank">德雲三寶全國巡演 上海站 2017</a></td>
-        </tr>
-        <tr>
-          <td>20170428</td>
-          <td><a href="https://v.youku.com/v_show/id_XMjcyMDM1ODg5Ng==.html?spm=a2hbt.13141534.1_3.1&s=c795d091257f11e7a1b7&scm=20140719.apircmd.61519.video_XMjcyMDM1ODg5Ng==" target="_blank">德雲社20周年閉幕慶典 2017</a></td>
-        </tr>
-        <tr>
-          <td>20170613</td>
-          <td><a href="https://v.youku.com/v_show/id_XMjgxOTkzMDQyMA==.html?spm=a2hbt.13141534.1_3.1&s=357eefbfbdefbfbd4d28&scm=20140719.apircmd.61519.video_XMjgxOTkzMDQyMA==" target="_blank">德雲社少帥出征巡演北京站 2017</a></td>
-        </tr>
-        <tr>
-          <td>20170909</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzE4MTk0NzU0NA==.html?spm=a2hbt.13141534.1_3.1&s=65238c7791cb4753b86c&scm=20140719.apircmd.61519.video_XMzE4MTk0NzU0NA==" target="_blank">德雲社少帥出征郭麒麟相聲專場天津站 2017</a></td>
-        </tr>
-        <tr>
-          <td>20171211</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzE5MTUxMjM1Ng==.html?spm=a2hbt.13141534.1_3.1&s=649401428c4542369012&scm=20140719.apircmd.61519.video_XMzE5MTUxMjM1Ng==" target="_blank">德雲社師恩天大專場北展站 2017</a></td>
-        </tr>
-        <tr>
-          <td>20171231</td>
-          <td><a href="https://v.youku.com/v_show/id_XMjIwNDU5NjE4NA==.html?spm=a2hbt.13141534.1_3.1&s=ff6aba0dd6fa11e68ce4&scm=20140719.apircmd.61519.video_XMjIwNDU5NjE4NA==" target="_blank">德雲社跨年相聲專場 2017</a></td>
-        </tr>
-        <tr>
-          <td>20180314</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzQ2MDkxMjIyOA==.html?spm=a2hbt.13141534.1_3.1&s=de1043437798417d9870&scm=20140719.apircmd.61519.video_XMzQ2MDkxMjIyOA==" target="_blank">德雲社戊戌年開箱慶典 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180407</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzU4NDQ1NjM4OA==.html" target="_blank">德雲社德雲三寶瀋陽相聲專場 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180408</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzY4MDE5MTY3Ng==.html?spm=a2hbt.13141534.1_3.1&s=97de56eedb394afaab56&scm=20140719.apircmd.61519.video_XMzY4MDE5MTY3Ng==" target="_blank">德雲社德雲三寶相聲專場大連站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180526</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzY1MzY2NDM1Mg==.html?spm=a2hbt.13141534.1_3.1&s=3202c4dddf904e82a82d&scm=20140719.apircmd.61519.video_XMzY1MzY2NDM1Mg==" target="_blank">德雲社張雲雷楊九郎相聲專場天津省親 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180716</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzgwMTU5NzU1Ng==.html?spm=a2hbt.13141534.1_3.1&s=1553aee940db4ab6a6a6&scm=20140719.apircmd.61519.video_XMzgwMTU5NzU1Ng==" target="_blank">德雲社郭德綱相聲專場遊輪 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180818</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzgxNDY2NDgwOA==.html?spm=a2hbt.13141534.1_3.1&s=585c877e8df44741968f&scm=20140719.apircmd.61519.video_XMzgxNDY2NDgwOA==" target="_blank">德雲社張雲雷楊九郎相聲專場七夕濟南站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180825</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzkyMTEwMDkwNA==.html?spm=a2hbt.13141534.1_3.1&s=fd878166ca214af596c8" target="_blank">德雲社郭麒麟相聲專場杭州站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180826</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzc2MjA5MDM4MA==.html?spm=a2hbt.13141534.1_3.1&s=ef7efc64f3b344169581&scm=20140719.apircmd.61519.video_XMzc2MjA5MDM4MA==" target="_blank">德雲社郭麒麟相聲專場天津站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180830</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzk4NDU2MjUxNg==.html?spm=a2hbt.13141534.1_3.1&s=dd35b75699c74b7f9b71&scm=20140719.apircmd.61519.video_XMzk4NDU2MjUxNg==" target="_blank">德雲社師徒父子相聲大典成都站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180831</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzkwMDMyMTk5Ng==.html?spm=a2h0c.8166622.PhoneSokuThreeProgram_1.dposter_8&s=088db86a34a7499b8d5a" target="_blank">德雲社郭德綱相聲專場紅酒之夜北展站 秋季 2018</a></td>
-        </tr>
-        <tr>
-          <td>20180910</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzg0MzQ0MTAxMg==.html?spm=a2hbt.13141534.1_3.1&s=4d4c2832e12746738afd&scm=20140719.apircmd.61519.video_XMzg0MzQ0MTAxMg==" target="_blank">德雲社戊戌年綱絲節慶典 2018</a></td>
-        </tr>
-        <tr>
-          <td>20181006</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDEyNTUxMTAzNg==.html?spm=a2hbt.13141534.1_3.1&s=feff3c931e4f44ee869e&scm=20140719.apircmd.61519.video_XNDEyNTUxMTAzNg==" target="_blank">德雲社岳雲鵬相聲專場南京站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20181013</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDEzMjkzOTk2OA==.html?spm=a2hbt.13141534.1_3.1&s=addd6ec353f1497eb81d&scm=20140719.apircmd.61519.video_XNDEzMjkzOTk2OA==" target="_blank">德雲社岳雲鵬相聲專場洛陽站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20181020</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDExMTY1NTc4MA==.html?spm=a2hbt.13141534.1_3.1&s=dfcd162325704b12b17c&scm=20140719.apircmd.61519.video_XNDExMTY1NTc4MA==" target="_blank">德雲社郭德綱相聲專場長沙站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20181103</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDczMTM1MjI1Ng==.html?spm=a2hbt.13141534.1_3.1&s=cffa6fee12e641189828&scm=20140719.apircmd.61519.video_XNDczMTM1MjI1Ng==" target="_blank">德雲社岳雲鵬相聲專場嘉興站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20181111</td>
-          <td><a href="https://v.youku.com/v_show/id_XMzk0MjI1NDA1Mg==.html?spm=a2hbt.13141534.1_3.1&s=5cdf086d4f8042888996&scm=20140719.apircmd.61519.video_XMzk0MjI1NDA1Mg==" target="_blank">德雲社岳雲鵬相聲專場北京站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20181222</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDE1NDc3ODM2NA==.html?spm=a2hbt.13141534.1_3.1&s=cfcc8a469ffd47189884&scm=20140719.apircmd.61519.video_XNDE1NDc3ODM2NA==" target="_blank">德雲社岳雲鵬相聲專場上海站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20190105</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDA2MjM0NTk5Mg==.html?spm=a2hbt.13141534.1_3.1&s=4e581cd4e7594cf595e6" target="_blank">德雲社師徒父子相聲大典西安站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190112</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDM5Mjg0MjE2OA==.html?spm=a2hbt.13141534.1_3.1&s=eacd242c86a3412d8dd0&scm=20140719.apircmd.61519.video_XNDM5Mjg0MjE2OA==" target="_blank">德雲社郭德綱從藝30周年相聲專場濟南站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190112</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDc1MDE5MzI2NA==.html" target="_blank">德雲社郭德綱相聲專場濟南站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20190126</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDA0NDUwNzAyNA==.html?spm=a2hbt.13141534.1_3.1&s=a8d1051cd6d447a6be10&scm=20140719.apircmd.61519.video_XNDA0NDUwNzAyNA==" target="_blank">德雲社戊戌年封箱慶典?2019</a></td>
-        </tr>
-        <tr>
-          <td>20190219</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDA4MjM0OTUyMA==.html" target="_blank">德雲社己亥年開箱慶典 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190426</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDE3NTI3ODM3Mg==.html?spm=a2hbt.13141534.1_3.1&s=fdfd5f930d0044a6bbde" target="_blank">德雲社孟鶴堂相聲生日專場大連站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190430</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDE4NTg0MjMzNg==.html" target="_blank">德雲社張鶴倫相聲專場北展站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190511</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDIwNDkzNDIyOA==.html?spm=a2hbt.13141534.1_3.1&s=aaaae021b28846888d4b&scm=20140719.apircmd.61519.video_XNDIwNDkzNDIyOA==" target="_blank">德雲社岳雲鵬相聲專場大連站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190511</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDIyNzA5MjgwNA==.html?spm=a2hbt.13141534.1_3.1&s=ceee6383ff164cacb295&scm=20140719.apircmd.61519.video_XNDIyNzA5MjgwNA==" target="_blank">德雲社郭德綱從藝30周年北展開幕站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190525</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDIzNzgxNDQzNg==.html?spm=a2hbt.13141534.1_3.1&s=ffbdd41e865d47ceb6b4" target="_blank">德雲社孟鶴堂相聲專場北展站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190601</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDI4NjQwMjgwMA==.html?spm=a2hbt.13141534.1_3.1&s=ebfd1daf720a4f67b21e&scm=20140719.apircmd.61519.video_XNDI4NjQwMjgwMA==" target="_blank">德雲社孟鶴堂相聲專場青島站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190607</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDI5OTc2NDYzMg==.html?spm=a2hbt.13141534.1_3.1&s=cefa7322fbfd48128f62" target="_blank">德雲社孟鶴堂相聲專場天津站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190609</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDI1OTM4NjgyMA==.html?spm=a2hbt.13141534.1_3.1&s=ecfa39bfbc69486fa70b&scm=20140719.apircmd.61519.video_XNDI1OTM4NjgyMA==" target="_blank">德雲社張九齡王九龍相聲專場上海站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190609</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDMzNTA0ODUwMA==.html?spm=a2hbt.13141534.1_3.1&s=ecce58320760464a882f" target="_blank">德雲社孟鶴堂相聲專場長春站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190615</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDI3MDA3MzA3Ng==.html?spm=a2hbt.13141534.1_3.1&s=dfcaa025d35d45f89cd1&scm=20140719.apircmd.61519.video_XNDI3MDA3MzA3Ng==" target="_blank">德雲社岳雲鵬相聲專場上海站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190615</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDMxNzI5MzM2NA==.html" target="_blank">德雲社郭德綱從藝30周年相聲專場北展站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190622</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDM3NjU4MTY3Mg==.html?spm=a2hbt.13141534.1_3.1&s=ddbd6498ed894475ad94&scm=20140719.apircmd.61519.video_XNDM3NjU4MTY3Mg==" target="_blank">德雲社郭德綱從藝30周年相聲專場哈爾濱站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190630</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDM2ODM1NDU4MA==.html" target="_blank">德雲社張鶴倫相聲專場石家莊站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190713</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDM4NDU1NDExMg==.html?spm=a2hbt.13141534.1_3.1&s=dbeb49cf4cbc46689620&scm=20140719.apircmd.61519.video_XNDM4NDU1NDExMg==" target="_blank">德雲社孟鶴堂相聲專場瀋陽站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190810</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDQ0MzY3NDIzNg==.html" target="_blank">德雲社張九齡王九龍相聲專場北京站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190810</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDQ1MTYzOTg4NA==.html?spm=a2hbt.13141534.1_3.1&s=acefc4dac9754ef0aced" target="_blank">德雲社郭德綱相聲專場北展站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190812</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDMwNjgyNDQ0OA==.html?spm=a2hbt.13141534.1_3.1&s=bbae46acc2024c6ea71e&scm=20140719.apircmd.61519.video_XNDMwNjgyNDQ0OA==" target="_blank">德雲社郭德綱從藝30周年相聲專場上海站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190816</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDQxOTkxMjE4MA==.html?spm=a2hbt.13141534.1_3.1&s=dcbe52bcf0fe4fb9917e&scm=20140719.apircmd.61519.video_XNDQxOTkxMjE4MA==" target="_blank">德雲社郭麒麟相聲專場成都站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190817</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDQ3NzIxMDY4NA==.html?spm=a2hbt.13141534.1_3.1&s=fbdd2e7e422142eb8cce&scm=20140719.apircmd.61519.video_XNDQ3NzIxMDY4NA==" target="_blank">德雲社郭德綱從藝30周年相聲專場南寧站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190818</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDYwNjI3NjY5Ng==.html?spm=a2hbt.13141534.1_3.1&s=efcba4bb66cd4df89f24&scm=20140719.apircmd.61519.video_XNDYwNjI3NjY5Ng==" target="_blank">德雲社張鶴倫相聲專場上海站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190822</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDA5NjM1NjM0MA==.html?spm=a2hbt.13141534.1_3.1&s=ffffed05f31b4abcac49&scm=20140719.apircmd.61519.video_XNDA5NjM1NjM0MA==" target="_blank">德雲社岳雲鵬相聲專場天津站 2018</a></td>
-        </tr>
-        <tr>
-          <td>20190830</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDQ5MzMyMDU0OA==.html" target="_blank">德雲社郭德綱從藝30周年相聲專場太原站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190909</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDM0NzEyMjk0NA==.html?spm=a2hbt.13141534.1_3.1&s=caadd0293b4c417989ad&scm=20140719.apircmd.61519.video_XNDM0NzEyMjk0NA==" target="_blank">德雲社己亥年綱絲節慶典 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190913</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDU0OTY1ODcyMA==.html?spm=a2hbt.13141534.1_3.1&s=bbea570b455645c3aba3&scm=20140719.apircmd.61519.video_XNDU0OTY1ODcyMA==" target="_blank">德雲社張鶴倫相聲專場天津站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20190928</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDQ2NjY2MTczMg==.html?spm=a2hbt.13141534.1_3.1&s=feeb4dd4bade4aff9609" target="_blank">德雲社孟鶴堂相聲專場上海站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191028</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDQxMDkxNjQ3Mg==.html?spm=a2h0c.8166622.PhoneSokuThreeProgram_1.dposter_9&s=cecdfb68c195403d885d" target="_blank">德雲社張鶴倫相聲專場哈爾濱站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191109</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDU3Mzc0OTQwOA==.html?spm=a2hbt.13141534.1_3.1&s=ffeba42ef2ad4b47991a&scm=20140719.apircmd.61519.video_XNDU3Mzc0OTQwOA==" target="_blank">德雲社孟鶴堂相聲專場哈爾濱站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191113</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDUxNzk5MTI5Ng==.html?spm=a2hbt.13141534.1_3.1&s=ceaeacaa4edb4936828d&scm=20140719.apircmd.61519.video_XNDUxNzk5MTI5Ng==" target="_blank">德雲社郭德綱“我愛我師”相聲專場北展站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191123</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDU4NTk0NDg5Mg==.html?spm=a2hbt.13141534.1_3.1&s=efbce03630ed4bff8126" target="_blank">德雲社張九齡王九龍相聲專場天津站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191208</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDUyMDYyMTUwOA==.html?spm=a2hbt.13141534.1_3.1&s=fccb07c226984e0a8b2c" target="_blank">德雲社岳雲鵬“享岳十年”相聲專場北京站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191214</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDU0MzU0NjY4MA==.html?spm=a2hbt.13141534.1_3.1&s=bbdcb73fc04c4c15b764&scm=20140719.apircmd.61519.video_XNDU0MzU0NjY4MA==" target="_blank">德雲社郭德綱從藝30周年相聲專場深圳站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191231</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDY3NDg4NjY3Mg==.html?spm=a2hbt.13141534.1_3.1&s=dfcb0a0d50254e11bc8d&scm=20140719.apircmd.61519.video_XNDY3NDg4NjY3Mg==" target="_blank">德雲社張鶴倫跨年相聲專場長春站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191231</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDYzNTQ1NTQ0NA==.html?spm=a2hbt.13141534.1_3.1&s=fdea9b22bf024ec3a156" target="_blank">德雲社孟鶴堂跨年相聲專場南京站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191231</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDAzMDk0NTUzMg==.html?spm=a2hbt.13141534.1_3.1&s=694f0f9c1e5349749d9d" target="_blank">德雲社岳雲鵬跨年專場重慶站?2019</a></td>
-        </tr>
-        <tr>
-          <td>20191231</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDYxODUxOTA0OA==.html?spm=a2hbt.13141534.1_3.1&s=bbdcb7bcfc6d4045a0e6&scm=20140719.apircmd.61519.video_XNDYxODUxOTA0OA==" target="_blank">德雲社岳雲鵬跨年相聲專場廣州站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191231</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDAwNDc5MTc1Ng==.html" target="_blank">德雲社郭德綱跨年專場北展站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20191231</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDY1NzEwMzI4NA==.html?spm=a2hbt.13141534.1_3.1&s=cdcccfde61f0404c92cf&scm=20140719.apircmd.61519.video_XNDY1NzEwMzI4NA==" target="_blank">德雲社郭德綱跨年相聲專場北展站 2019</a></td>
-        </tr>
-        <tr>
-          <td>20200101</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDY5MzU2NDYwMA==.html" target="_blank">德雲社燒餅相聲專場西安站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20200104</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDcwOTcyNjk1Ng==.html?spm=a2hbt.13141534.1_3.1&s=bdaaec57678949f981f1&scm=20140719.apircmd.61519.video_XNDcwOTcyNjk1Ng==" target="_blank">德雲社郭德綱相聲專場上海站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20200117</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDUwNzI5MzMzMg==.html?spm=a2hbt.13141534.1_3.1&s=fdccd2e2e30d4e7cb5cf&scm=20140719.apircmd.61519.video_XNDUwNzI5MzMzMg==" target="_blank">德雲社己亥年封箱慶典 2020</a></td>
-        </tr>
-        <tr>
-          <td>20200912</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDg3MDk1NjUwOA==.html?spm=a2hbt.13141534.1_3.1&s=bcfb2750dba64c27b0f8&scm=20140719.apircmd.61519.video_XNDg3MDk1NjUwOA==" target="_blank">德雲社德雲五隊小開箱慶典南京站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20200912</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDg4OTE3NzI0OA==.html?spm=a2hbt.13141534.1_3.1&s=efda7f862db3458a92e6&scm=20140719.apircmd.61519.video_XNDg4OTE3NzI0OA==" target="_blank">德雲社德雲六隊小開箱慶典湖廣站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201001</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDkxNjYzMDk3Ng==.html?spm=a2hbt.13141534.1_3.1&s=edbea5bd8a3844578ea2&scm=20140719.apircmd.61519.video_XNDkxNjYzMDk3Ng==" target="_blank">德雲社德雲七隊小園子廣德樓站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201002</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDkzNDM1MzYyNA==.html?spm=a2hbt.13141534.1_3.1&s=defafba36f044ba680c7&scm=20140719.apircmd.61519.video_XNDkzNDM1MzYyNA==" target="_blank">德雲社德雲七隊小園子湖廣會館站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201021</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDk2NjYwNjk4NA==.html" target="_blank">德雲社德雲六隊小園子新街口站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201024</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTAwNzQyNzYzNg==.html?spm=a2hbt.13141534.1_3.1&s=dbec42a2a2944dbfbba7" target="_blank">德雲社德雲五隊小園子長春劇場站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201105</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTA1ODM1MDM2OA==.html?spm=a2hbt.13141534.1_3.1&s=ddebc90bc919422abf3e" target="_blank">德雲社德雲五隊小園子三裡屯劇場站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201106</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTA4MzI1MDMwMA==.html?spm=a2hbt.13141534.1_3.1&s=aaaaf7b5e0de481baffa&scm=20140719.apircmd.61519.video_XNTA4MzI1MDMwMA==" target="_blank">德雲社德雲六隊小園子吉林劇場站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201108</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTEwMDk2NTc0MA==.html?spm=a2hbt.13141534.1_3.1&s=eeeb8b12f2e842219395&scm=20140719.apircmd.61519.video_XNTEwMDk2NTc0MA==" target="_blank">德雲社德雲七隊小園子新街口劇場站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201115</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTEwOTg1OTY3Ng==.html?spm=a2hbt.13141534.1_3.1&s=bcdf62c207d84fe7b0b1&scm=20140719.apircmd.61519.video_XNTEwOTg1OTY3Ng==" target="_blank">德雲社德雲五隊小園子天橋劇場站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201201</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDk4MTA3MzE4NA==.html?spm=a2hbt.13141534.1_3.1&s=addb81c0fa7f449c9dcc&scm=20140719.apircmd.61519.video_XNDk4MTA3MzE4NA==" target="_blank">德雲社庚子年開箱慶典 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201207</td>
-          <td><a href="https://v.youku.com/v_show/id_XNDk5MDU1MjA1Ng==.html?spm=a2hbt.13141534.1_3.1&s=dcbf518893f34f019474&scm=20140719.apircmd.61519.video_XNDk5MDU1MjA1Ng==" target="_blank">德雲社郭德綱于謙合作20周年開幕慶典北展站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20201231</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTAyNzE5MDAwOA==.html?spm=a2hbt.13141534.1_3.1&s=acce459892c94ec48e19&scm=20140719.apircmd.61519.video_XNTAyNzE5MDAwOA==" target="_blank">德雲社郭德綱跨年相聲專場北展站 2020</a></td>
-        </tr>
-        <tr>
-          <td>20210303</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTExODQzNTMxNg==.html" target="_blank">德雲社德雲七隊小園子南京劇場站 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210318</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTEyNzQyMzM2NA==.html?spm=a2hbt.13141534.1_3.1&s=eaca5751453f42669355&scm=20140719.apircmd.61519.video_XNTEyNzQyMzM2NA==" target="_blank">德雲社德雲五隊小園子三裡屯劇場站 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210410</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTEzMzY0MzIyMA==.html?spm=a2hbt.13141534.1_3.1&s=cdcc66b795fe41eab0b1&scm=20140719.apircmd.61519.video_XNTEzMzY0MzIyMA==" target="_blank">德雲社庚子年封箱慶典第一場 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210411</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTEzMzY1NDc0MA==.html?spm=a2hbt.13141534.1_3.1&s=befd29a3de62498bb208" target="_blank">德雲社庚子年封箱慶典第二場 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210413</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTE0MjM0MDc1Ng==.html?spm=a2hbt.13141534.1_3.1&s=baba786d692c41a2bb44&scm=20140719.apircmd.61519.video_XNTE0MjM0MDc1Ng==" target="_blank">德雲社德雲二隊小園子新街口劇場站 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210501</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTE1MTExMDE4OA==.html" target="_blank">德雲社德雲九隊天津站開業第一場 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210502</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTE2NDQyNTI0NA==.html?spm=a2hbt.13141534.1_3.1&s=fddafc3a5a1b49039c30&scm=20140719.apircmd.61519.video_XNTE2NDQyNTI0NA==" target="_blank">德雲社德雲九隊天津站開業第二場 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210503</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTE3MDAwNzc1Mg==.html?spm=a2hbt.13141534.1_3.1&s=ebbd9512a8f840979c5b&scm=20140719.apircmd.61519.video_XNTE3MDAwNzc1Mg==" target="_blank">德雲社德雲九隊天津站開業第三場 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210504</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTE3NjIyMzU3Ng==.html?spm=a2hbt.13141534.1_3.1&s=dede13a18a4d4ac18627" target="_blank">德雲社德雲九隊天津站開業第四場 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210505</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTE4MTg2NTcyOA==.html?spm=a2hbt.13141534.1_3.1&s=acee5456ac784aadaf3c" target="_blank">德雲社德雲九隊天津站開業第五場 2021</a></td>
-        </tr>
-        <tr>
-          <td>20210524</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTE1ODM2MDAwMA==.html?spm=a2hbt.13141534.1_3.1&s=effd18ec0f49466d888f&scm=20140719.apircmd.61519.video_XNTE1ODM2MDAwMA==" target="_blank">德雲社成立25周年慶典</a></td>
-        </tr>
-        <tr>
-          <td>20210711</td>
-          <td><a href="https://v.youku.com/v_show/id_XNTE4NzIxMjIwNA==.html?spm=a2hbt.13141534.1_3.1&s=ffaea0ad09fd4006ae91" target="_blank">德雲社德雲五隊小園子天津站 2021</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <h2 align="left">FB 粉絲專頁</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/DYS.randompost" target="_blank">網址連結</a>
+
+    <h2 align="left">IG</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://instagram.com/b.pseudomallei?utm_medium=copy_link" target="_blank">網址連結</a>
+      <br></br>
+      <details>
+        <summary>QR code</summary>
+        <img src="https://raw.githubusercontent.com/Celine10811020/DYS/main/IG_QR_code.png" />
+      </details>
+
+      <h2 align="left">Pixnet 部落格</h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dys0727.pixnet.net/blog?utm_source=PIXNET&utm_medium=navbar&utm_term=my_blog" target="_blank">網址連結</a>
+
+    <hr>
+
+    <h2 align="left">德雲社字幕組列表</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://celine10811020.github.io/DYS.zimuzu" target="_blank">繁體版網頁</a>
+      <br></br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://celine10811020.github.io/DYS.zimuzu/simplify" target="_blank">簡體版網頁</a>
+
+    <h2 align="left">德雲社字幕組作品總匯</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://celine10811020.github.io/DYS.zimuzu.works" target="_blank">繁體版網頁</a>
+      <br></br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://celine10811020.github.io/DYS.zimuzu.works/simplify" target="_blank">簡體版網頁</a>
+
+    <h2 align="left">德雲社YK官錄視頻統整列表</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://celine10811020.github.io/yk.video" target="_blank">繁體版網頁</a>
+      <br></br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://celine10811020.github.io/yk.video/simplify" target="_blank">簡體版網頁</a>
+      <br></br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.mmore.xyz" target="_blank">vip視頻解析網站</a>
+
   </font>
+
 
   <div id="blank">
   </div>
@@ -452,17 +66,10 @@
     <font size="5">
       <p align="center"> 相關連結 </p>
     </font>
-      <p> <td><a href="https://celine10811020.github.io/YK.video/simplify" target="_blank"> 簡體版網頁</a> </p>
-      <p> <td><a href="http://www.mmore.xyz" target="_blank"> vip視頻解析網頁</a> </p>
-      <p> <td><a href="https://celine10811020.github.io/DYS" target="_blank"> 回首頁</a> </p>
-      <p> <td><a href="https://forms.gle/2rAuiyWCNfwjpoym7" target="_blank"> 問題回饋</a> </p>
+      <p> <a href="https://celine10811020.github.io/DYS/simplify" target="_blank"> 簡體版網頁 </a> </p>
+      <p> <a href="https://forms.gle/2rAuiyWCNfwjpoym7" target="_blank"> 問題回饋 </a> </p>
   </div>
 
-  <script>
-    $(document).ready( function () {
-      $('#table_id').DataTable();
-  } );
-  </script>
 </body>
 
 </html>
